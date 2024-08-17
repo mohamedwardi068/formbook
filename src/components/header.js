@@ -1,5 +1,5 @@
-import Select from 'react-select';
 import React from 'react';
+import Select from 'react-select';
 
 const options = [
   {
@@ -8,7 +8,7 @@ const options = [
     icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg/255px-Flag_of_the_United_Kingdom_%281-2%29.svg.png',
   },
   {
-    value: 'FRA',
+    value: 'fra',
     label: 'FRA',
     icon: 'https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/125px-Flag_of_France.svg.png',
   },
@@ -29,9 +29,9 @@ const customStyles = {
     minHeight: '30px',
     height: '30px',
     fontSize: '12px',
-    backgroundColor: 'transparent',  
-    border: 'none',                  
-    boxShadow: 'none',              
+    backgroundColor: 'transparent',
+    border: 'none',
+    boxShadow: 'none',
   }),
   valueContainer: (provided) => ({
     ...provided,
@@ -57,8 +57,8 @@ const customStyles = {
 
 function Header() {
   return (
-    <div className="ml-[17%] flex justify-around items-center"> {/* Added items-center to align items */}
-      <div className="flex flex-col lg:flex-row lg:space-x-6 font-bold"> {/* Removed unnecessary space-y and space-y-4 to maintain alignment */}
+    <div className="ml-[5%] md:ml-[5%] lg:ml-[5%] flex justify-between items-center mr-[2%] "> {/* Adjusted the margins for responsiveness */}
+      <div className="flex flex-col lg:flex-row lg:space-x-6 font-bold">
         <div className="cursor-pointer flex items-center group">
           HOMES
           <svg
@@ -131,12 +131,12 @@ function Header() {
             </div>
           </div>
         </div>
-        <div className="cursor-pointer flex items-center"> {/* Ensured that the 'CONTACT' is in the flex container */}
+        <div className="cursor-pointer flex items-center">
           CONTACT
         </div>
       </div>
 
-      <div className="flex space-x-6 items-center"> {/* Added items-center to align elements */}
+      <div className="flex space-x-[20%] whitespace-nowrap mr-[15%] "> 
         <div className="flex items-center space-x-2">
           <i className="fa fa-store text-xl"></i>
           <span>Sell on Swoo</span>
@@ -166,14 +166,13 @@ function Header() {
         </div>
       </div>
 
-      <div className="flex items-center">
+      <div className="flex items-center mr-9">
         <div className="ml-0 md:ml-4 mt-2 md:mt-0">
           <select className="p-1 text-lg">
             <option>USD</option>
           </select>
         </div>
 
-    
         <div className="mx-2 w-[1px] h-8 bg-gray-300"></div>
 
         <div className="ml-0 md:ml-4 mt-2 md:mt-0 w-20 h-8 border-none text-sm">
