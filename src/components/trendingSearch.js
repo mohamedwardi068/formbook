@@ -9,7 +9,7 @@ export default function TrendingSearch() {
   ];
 
   return (
-    <div className="p-4 mt-[20%] ml-[5%] sm:ml-[13%] relative md:ml-[4.5%]">
+    <div className="p-4 mt-[2%] ml-[5%] sm:ml-[13%] relative md:ml-[4.5%]">
       <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-black">Trending Search</h2>
       <div className="flex flex-wrap gap-2 mt-7">
         {trendingItems.map((item, index) => (

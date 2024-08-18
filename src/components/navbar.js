@@ -3,7 +3,7 @@ import React from "react";
 function Navbar() {
   return (
     <div>
-      <div className="flex items-center justify-between border-none bg-transparent h-auto pb-3 text-center mt-3 ml-[5%] md:ml-[5%]  mr-[5%] ">
+      <div className="flex items-center justify-between border-none bg-transparent h-auto pb-3 text-center mt-3 ml-[5%] md:ml-[5%]  mr-[2%] ">
         <div className="flex items-center bg-transparent rounded-full relative">
           <select className="border-none outline-none font-bold bg-gray-200 rounded-l-full w-[140px] h-[50px] text-center">
             <option value="all-categories">All Categories</option>

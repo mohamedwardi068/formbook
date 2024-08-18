@@ -18,7 +18,7 @@ function PopularCat() {
     <div className="mx-8 my-4 ml-[15%] md:ml-[5%] mt-6">
       <div className="flex justify-between items-center">
         <h2 className="text-2xl font-bold">Popular Categories</h2>
-        <a href="#" className="text-sm text-blue-600 hover:underline">
+        <a className="text-sm text-blue-600 hover:underline">
           View All
         </a>
       </div>

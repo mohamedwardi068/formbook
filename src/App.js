@@ -13,6 +13,8 @@ import SignUp from './pages/signup';
 import { BrowserRouter,Routes,Route } from "react-router-dom";
 
 import ListProduct from './pages/listProduct';
+import Footer from './pages/footer';
+import BestSeller from './pages/BestSeller';
 
 
 function App() {
@@ -29,13 +31,13 @@ function App() {
     <Header/>
     <BrowserRouter>
 <Routes >
-<Route index element={<><PopularCat/><TopStory/><BottomStory/><TrendingSearch/><PreOrder/><ListProduct/></>}/>
+<Route index element={<><PopularCat/><TopStory/><BottomStory/><ListProduct/><PreOrder/><TrendingSearch/> <BestSeller/></>}/>
 <Route path="/login" element={<><Loginn/></>}/>
 <Route path="/signup" element={<><SignUp/></>}/>
 </Routes>
 </BrowserRouter>
 
-      
+      {/* <Footer/> */}
     </>
   );
 }

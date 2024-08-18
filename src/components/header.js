@@ -57,7 +57,7 @@ const customStyles = {
 
 function Header() {
   return (
-    <div className="ml-[5%] md:ml-[5%] lg:ml-[5%] flex justify-between items-center mr-[2%] "> {/* Adjusted the margins for responsiveness */}
+    <div className="ml-[5%] md:ml-[5%] lg:ml-[5%] flex justify-between items-center mr-[2%] "> 
       <div className="flex flex-col lg:flex-row lg:space-x-6 font-bold">
         <div className="cursor-pointer flex items-center group">
           HOMES

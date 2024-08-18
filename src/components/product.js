@@ -1,17 +1,21 @@
 import React from 'react';
 
-function Product({ id, title, price, originalPrice, imageUrl, discount, totalStock, sold, rating, reviewsCount }) {
+function Product({
+  id, title, price, originalPrice, imageUrl, totalStock, sold, rating, reviewsCount, isTopRated, isBestSeller, isPreOrder
+}) {
   const soldPercentage = (sold / totalStock) * 100;
+  const discount = ((originalPrice - price) / originalPrice) * 100;
 
   return (
-    <div className="w-full sm:w-[350px] bg-white rounded-lg overflow-hidden h-auto border border-[#999999] mx-auto sm:ml-3 mb-4">
+    <div className="w-full sm:w-[350px] bg-white rounded-lg overflow-hidden h-auto border border-gray-400 mx-auto sm:ml-3 mb-4">
       <div className='p-5'>
         <div className="relative">
           <div className='mb-5'>
-            <div className="bg-transparent text-red-500 border border-red-500 text-xs font-bold px-4 py-1 rounded-full absolute top-0 right-1/2 sm:right-[65%] whitespace-nowrap text-center transform translate-x-1/2 sm:translate-x-0">
+            
+            <div className="bg-transparent text-red-500 border border-red-500 text-xs font-bold px-4 py-1 rounded-full absolute top-0 right-1/2 sm:right-[65%] transform translate-x-1/2 sm:translate-x-0 text-nowrap">
               0% Installment
             </div>
-            <button className="top-0 right-2 sm:right-1% bg-purple-500 text-white rounded-full w-[30px] h-[30px] absolute">
+            <button className="top-0 right-2 sm:right-[1%] bg-purple-500 text-white rounded-full w-[30px] h-[30px] absolute">
               <i className="fa fa-heart text-white text-xl"></i>
             </button>
           </div>
@@ -19,16 +23,33 @@ function Product({ id, title, price, originalPrice, imageUrl, discount, totalSto
             <img
               src={imageUrl}
               alt="Product"
-              className="w-full h-[300px] object-cover mt-2"
+              className="w-[500px] h-[300px] object-cover mt-2"
             />
           </div>
         </div>
 
         <div className="p-4">
           <div className="flex items-center mb-3">
-            <div className="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-              {discount}% OFF
-            </div>
+            {discount > 0 && (
+              <div className="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                {discount.toFixed(0)}% OFF
+              </div>
+            )}
+            {isPreOrder && (
+              <div className="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full ml-2">
+                Pre-order
+              </div>
+            )}
+            {isTopRated && (
+              <div className="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full ml-2">
+                TOP RATED
+              </div>
+            )}
+            {isBestSeller && (
+              <div className="bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded-full ml-2">
+                BEST SELLER
+              </div>
+            )}
           </div>
 
           <h2 className="text-gray-800 text-lg font-bold mt-2">{title}</h2>
