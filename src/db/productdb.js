@@ -81,7 +81,7 @@ const products = [
     price: 399.00,
     originalPrice: 599.00,
     discount: 33,
-    imageUrl: "https://s3-alpha-sig.figma.com/img/dd7e/4496/8a4c6ea7d76ec860caa57ec46c5fb903?Expires=1724630400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=D40Nw9OyIBSWua6OMHKBhji8dcZJ8-VSknGGvxFQLJv2Yd20B0hQhpZd7EwkpHyghE-AKslTAtLlzH07erDrdzUbBan4s1sNtDZ~ASlCjz-5TGpQuBg27Fz5QaOV3S25jCului1bkyJf4YWyHXp23PpCu67RayNFc8II03lrK8XstTmUpUgKLO-46n~7hKaSbhPtQHSpqJzcC3oRsogUnpbBsOJtNn4QVwXr3ZtpjDl4v~ya4O5wKRzHRTAyiaM~fsLyLHKQgXaXe7UHHh3nRbpnXftgxzuaQ3sUN2RvvHmIADJaWVQ6dxj~m6IPuZgvZUF6JZL7GP-2LjqRcSqHGw__",
+    imageUrl: "https://s3-alpha-sig.figma.com/img/5a8b/35e9/fff594abf5764db21edd0c2b315be449?Expires=1725235200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=RrLeT5FHEN~DF3ZAW9noXnsgo3FAsPTA2AhF0vHzia-T6aPFGVLliFua1RVuhr7GPRt4AssogB8CDZ2qf6oPRaf9-qQebqbt8EHFYJYvkhmVEJHYD8nuOx9cZNNYpVGm~IU8wJVbl37HGBPY~CYMNdM2VxGNeOVKB9ZUe~38SgIQdDXrDE521Y1NRXU1DZ-i7sZi71-tSOpKXhrRZ-o3vMRsPihrfyEiI0QvaDkJQ8aMTVS6Ro-V5PV3F30Wzb6Jio-KFq--qyMRBpiNtbwEfWwv-0Cg2t2mdEJgExm~o48NbR1XbduGBHS97Ank43Ka3gaHZULdUVIFdccI6Y4YZQ__",
     sold: 24,
     totalStock: 80,
     rating: 5.0,

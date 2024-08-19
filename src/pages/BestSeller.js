@@ -1,6 +1,7 @@
 import React from 'react';
 import bestSellerProducts from '../db/bestsellerdb'
-import Product from '../components/product'; 
+
+import Producttt from '../components/producttt';
 function BestSeller() {
     const Bestsell = [
         'Top 30 ', 'Televisions', 'PC Gaming', 'Computers', 'Cameras',
@@ -26,7 +27,7 @@ function BestSeller() {
       </div>
       <div className='flex space-x-5  '>
       {bestSellerProducts.map((product) => (
-            <Product
+            <Producttt
               key={product.id}
               title={product.title}
               price={product.price}
@@ -42,6 +43,28 @@ function BestSeller() {
             />
           ))}
       </div>
+      <div className="absolute  right-0 mb-7 mr-[50%] md:mr-[42%]">
+              <button className="bg-white border border-gray-300 text-gray-700 px-4 py-2 rounded-full hover:bg-gray-200 w-[100px] md:w-[200px] h-[40px] flex justify-between items-center mb-8 mr-5 ">
+                <span className="flex flex-col items-center text-xs">
+                  {'prv'.split('').map((char, index) => (
+                    <span key={index}>{char}</span>
+                  ))}
+                </span>
+                <div className="absolute bottom-0  mb-12 right-[32%] flex space-x-2 text-center ">
+                  <button className="bg-gray-300 border border-gray-300 text-gray-700 rounded-full hover:bg-blue-500 w-[10px] h-[10px]"></button>
+                  <button className="bg-gray-300 border border-gray-300 text-gray-700 rounded-full hover:bg-blue-500 w-[10px] h-[10px]"></button>
+                  <button className="bg-gray-300 border border-gray-300 text-gray-700 rounded-full hover:bg-blue-500 w-[10px] h-[10px]"></button>
+                  <button className="bg-gray-300 border border-gray-300 text-gray-700 rounded-full hover:bg-blue-500 w-[10px] h-[10px]"></button>
+                  <button className="bg-gray-300 border border-gray-300 text-gray-700 rounded-full hover:bg-blue-500 w-[10px] h-[10px]"></button>
+                  <button className="bg-gray-300 border border-gray-300 text-gray-700 rounded-full hover:bg-blue-500 w-[10px] h-[10px]"></button>
+                </div>
+                <span className="flex flex-col items-center text-xs">
+                  {'nxt'.split('').map((char, index) => (
+                    <span key={index}>{char}</span>
+                  ))}
+                </span>
+              </button>
+            </div>
       
     </div>
   );

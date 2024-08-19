@@ -146,7 +146,7 @@ function Footer() {
             </div>
             <hr className="ml-[37.5%] border-t-2 border-gray-300  mt-[1%]" />
             <p className="text-sm text-gray-600 mt-2 ml-[-7%] ">
-              By subscribing, you're accepted the our <a href="#" className="text-black underline">Policy</a>
+              By subscribing, you're accepted the our <a  className="text-black underline">Policy</a>
             </p>
           </div> 
           <div className="mt-[5%] flex justify-between items-center border-t border-gray-300 pt-4">

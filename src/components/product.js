@@ -7,15 +7,15 @@ function Product({
   const discount = ((originalPrice - price) / originalPrice) * 100;
 
   return (
-    <div className="w-full sm:w-[350px] bg-white rounded-lg overflow-hidden h-auto border border-gray-400 mx-auto sm:ml-3 mb-4">
+    <div className="w-full sm:w-[350px] bg-gradient-to-b from-white from-70% via-gray-500 via-80% to-white to-95%  rounded-lg overflow-hidden h-auto border border-gray-400 mx-auto sm:ml-3 mb-4">
       <div className='p-5'>
         <div className="relative">
           <div className='mb-5'>
             
-            <div className="bg-transparent text-red-500 border border-red-500 text-xs font-bold px-4 py-1 rounded-full absolute top-0 right-1/2 sm:right-[65%] transform translate-x-1/2 sm:translate-x-0 text-nowrap">
+            <div className="bg-transparent text-red-500 border border-red-500 text-xs font-bold px-4 py-1 rounded-full absolute bottom-[100%] right-1/2 sm:right-[65%] transform translate-x-1/2 sm:translate-x-0 text-nowrap ">
               0% Installment
             </div>
-            <button className="top-0 right-2 sm:right-[1%] bg-purple-500 text-white rounded-full w-[30px] h-[30px] absolute">
+            <button className=" right-2 sm:right-[1%] bg-[#4B3EC4] text-white rounded-full w-[35px] h-[35px] absolute text-center justify-center bottom-[100%] ">
               <i className="fa fa-heart text-white text-xl"></i>
             </button>
           </div>
@@ -69,13 +69,13 @@ function Product({
               );
             })}
             <span className="text-gray-600 text-sm ml-2">
-              ({reviewsCount})
+              (5)
             </span>
           </div>
 
           <div className="flex items-baseline mt-2">
             <span className="text-red-500 text-xl font-semibold">${price}</span>
-            <span className="text-gray-500 line-through ml-2">${originalPrice}</span>
+            <span className="text-black line-through ml-2">${originalPrice}</span>
           </div>
 
           <div className="w-full bg-gray-200 rounded-full h-2.5 mt-3 mb-2">

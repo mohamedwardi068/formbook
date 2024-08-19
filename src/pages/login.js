@@ -83,7 +83,7 @@ function Loginn() {
             </div>
           </form>
           <p className="text-gray-600 text-sm mt-4">
-            NEW USER? <a href="#" className="text-green-500 hover:text-green-800">SIGN UP</a>
+            NEW USER? <a className="text-green-500 hover:text-green-800">SIGN UP</a>
           </p>
         </div>
       </div>
