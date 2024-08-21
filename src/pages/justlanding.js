@@ -1,17 +1,18 @@
 import React from 'react';
-import bestSellerProducts from '../db/bestsellerdb'
+
 
 import Producttt from '../components/producttt';
-function BestSeller() {
+import productss from '../db/justLandingdb';
+function JustLanding() {
     const Bestsell = [
-        'Top 30 ', 'Televisions', 'PC Gaming', 'Computers', 'Cameras',
+        'TV/Televisions ', 'PC Gaming', 'Computers', 'Cameras',
         'Gadgets', 'Smart Home', 'Sport Equipments',
       ];
     
   return (
     <div className='bg-white p-9 mt-8 ml-5'>
         <div className='flex justify-between'>
-      <h2 className='font-bold text-3xl  text-left'>Best Seller</h2>
+      <h2 className='font-bold text-3xl  text-left'>Just Landing</h2>
       <div className="text-right">
         <a href="/products" className="text-black font-bold hover:underline">VIEW ALL &gt;</a>
       </div></div>
@@ -26,7 +27,7 @@ function BestSeller() {
         ))}
       </div>
       <div className='flex space-x-5  '>
-      {bestSellerProducts.map((product) => (
+      {productss.map((product) => (
             <Producttt
               key={product.id}
               title={product.title}
@@ -40,6 +41,7 @@ function BestSeller() {
               isTopRated={product.isTopRated}
               isBestSeller={product.isBestSeller}
               isPreOrder={product.isPreOrder}
+              isNew={product.isNew}
             />
           ))}
       </div>
@@ -70,4 +72,4 @@ function BestSeller() {
   );
 }
 
-export default BestSeller;
+export default JustLanding;

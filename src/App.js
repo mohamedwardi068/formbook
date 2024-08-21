@@ -16,6 +16,7 @@ import ListProduct from './pages/listProduct';
 import Footer from './pages/footer';
 import BestSeller from './pages/BestSeller';
 import PopCat from './components/popCateg';
+import JustLanding from './pages/justlanding';
 
 
 function App() {
@@ -32,7 +33,7 @@ function App() {
     <Header/>
     <BrowserRouter>
 <Routes >
-<Route index element={<><PopularCat/><TopStory/><BottomStory/><ListProduct/><PreOrder/><TrendingSearch/> <BestSeller/><PopCat/></>}/>
+<Route index element={<><PopularCat/><TopStory/><BottomStory/><ListProduct/><PreOrder/><TrendingSearch/> <BestSeller/><PopCat/><JustLanding/></>}/>
 <Route path="/login" element={<><Loginn/></>}/>
 <Route path="/signup" element={<><SignUp/></>}/>
 </Routes>

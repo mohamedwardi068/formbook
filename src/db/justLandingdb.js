@@ -1,0 +1,83 @@
+const productss = [
+    {
+      id: 1,
+      title: "TOSHIRO Smart Inverter 12L Washing Machine",
+      price: 1029.50,
+      originalPrice: null,  // No original price is shown
+      discount: null,       // No discount percentage is shown
+      imageUrl: "https://s3-alpha-sig.figma.com/img/6de5/1014/79a5e90b6d398be883b87c205c75290a?Expires=1725235200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=n5JSeUJxPRMTJVfeM7s2k40e4H3IQSjv8ueFcmMzgVuJ0guNC5W2T5yQcoH9LnnXOEAa-pGS~XFOJuSEGlI5RB0BT9Cz156QXU6d2ijcDZL4jAIPMi5Fri7ane7jTsCPNkVYoikQrruvNw8h~Lt1cBXnkVgiBKaDvD-xJILhvriMfIabW2kcGQh6mPZTVvgEcXKZwGRutaFVWZCIs7mNEXaLaYA9X-7iYfFP2yvlEWL8dVPxCPtqP8LN13R41AILnG8vWT5Wp4VYhi8-ioZHW5sV0WlQf68laO1a8VEOlX6ERTif5ZuNAji6TfiGriaRdjnVhIAZD9ABZCfpGZXDyw__",
+      sold: null,           // Not provided
+      totalStock: null,     // Not provided
+      rating: null,         // No rating is shown
+      reviewsCount: null,   // No reviews count is shown
+      isTopRated: false,
+      isBestSeller: false,
+      isPreOrder: false,
+      isNew: true,
+    },
+    {
+      id: 2,
+      title: "TORO Smart Self Balancing Transporter Scooter",
+      price: 1512.90,
+      originalPrice: null,
+      discount: null,
+      imageUrl: "https://s3-alpha-sig.figma.com/img/f933/5a2c/4f44ee41d61bbd64068185ffbf08064f?Expires=1725235200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Xk517~gNzSVnRaQ-omBbPLgNZ~azE4mJ8P1fCEvBYIM3BUPI1-TlSEDhow3CY~RKoHxi7cxT9V1ikO6rx1IuxQ57Q~65FjzS3R9uG1FYCNpTlZuw8FR6buwzGJNhouCATBF9KNwKs6sb823jyHmXkLb6AEn3c5k5TM5QleU6KI4zyd28-NPbuKNhA6IX9hlk0gxnlN~cggp2LHYsqQhPRYgzztvGTVH8cBWfbcZMzjqFab94bY~FCQhvNHClBtmvzfWQR6FEBw0jglY4E254vPbKA7Qq8D2fVS6l5m2fI1ldfxBEmGAyE48XXHFJ9B4DhwhRuHwuZ5-D4GEFvfK7bg__",
+      sold: null,
+      totalStock: null,
+      rating: 5.0,
+      reviewsCount: 2,
+      isTopRated: false,
+      isBestSeller: false,
+      isPreOrder: false,
+      isNew: true,
+    },
+    {
+      id: 3,
+      title: "Onyx HK Studio 2 Speaker",
+      price: 205.00,
+      originalPrice: null,
+      discount: null,
+      imageUrl: "https://s3-alpha-sig.figma.com/img/da92/ef39/7450cc9fa6b9b423834b378b3fad4710?Expires=1725235200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=T9TZ9elNDPy9ZPQBfn-CaonUs3qrN6u2PdwHAD8SV0obLkKTu8xScelylTHVokKuXqI~vjmz9Rbms7MuClSyaiZDYFFVD4Q3c0ypp1XGjK4PYENpFIT9Fdi906BG8zpeY9ubA2x2BqUqob6WOGhmtoh~n89Z5QDNJsbafHNepbadILJwsC0nYruMAwVo-4Lv7H0TrDuVB27F4DVBlfl2lbFmd7XmwFkDKfZ772V226iHmDpNnH8TZkAoUSOjJQLIjoYENPlvUEjdhyugjbKYOqiECMqjzxj8Na3O0jxA4vM80GjVpHE9wPTJZVREgPKCghr3t1KdgxP5hfqWdDlVsw__",
+      sold: null,
+      totalStock: null,
+      rating: 4.5,
+      reviewsCount: 5,
+      isTopRated: true,
+      isBestSeller: false,
+      isPreOrder: false,
+      isNew: true,
+    },
+    {
+      id: 4,
+      title: "Shorp 49\" Class FHD (1080p) Android LED TV",
+      price: 3029.50,
+      originalPrice: null,
+      discount: null,
+      imageUrl: "https://s3-alpha-sig.figma.com/img/4830/e6dc/b38f8252d85b5355051fd05c8e97af88?Expires=1725235200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=pN9dGBlMt5t678XV~oFIAWXBmIKsTCt1MYplWlmIy5cfl4RTpkZ~Gr3R0Gtzq1y9fGPpEgbEPaCMTOC0TLts4gDTwbGO~AEmnzahOUXi3CTWTWN-65iWzkB3fl2~NdraApOKQuaxnjeoeeOow5~OWRpYpaNEgTFcymEpryUohJsRc~4OpyaeRdDAekDO04kXHXSbyvGz-p1-bow4UVSNJ5~lHx2BmhiunqPhXKDg2l0vtkH1eA-nfjVnL2FruRBnhwwoO4OD-qARHm5~AAvWL3pJ3VS-jpAZeobJDOKCBor90fMlzF5A696GnJnpldkNme3IcN6oV7N7HLmL8SJVGA__",
+      sold: null,
+      totalStock: null,
+      rating: 4.8,
+      reviewsCount: 5,
+      isTopRated: false,
+      isBestSeller: true,
+      isPreOrder: false,
+      isNew: true,
+    },
+    {
+      id: 5,
+      title: "uClever Boost Cube Mini 12V Charge",
+      price: 209.00,
+      originalPrice: null,
+      discount: null,
+      imageUrl: "https://s3-alpha-sig.figma.com/img/e505/ec10/5d05bd6aa11612b8ab78c8b82dbb5792?Expires=1725235200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Fj0YCu089c5X0bzYgDDlHWyeTpdmsAiC5nBAEEyJMIN4zYTa77zo-oIfVjYVH6MG3cCGbN6-b9DSXqm-aHYGU87ajYfZvWeOqNXx7SBO6KMeOP3CnaipOdmySwUhjk53qVmj~4V-oKbs~tE-gxYpUOBT3sx1JfP1wCQqinkvBwoylJ~vq6yX1EOYJpCbzjgQwDBhbG2cb0e9I4KFf~L3q1mZF23HflwWwnPNZIcaXwONJCozrgpx2QLU7FghlXhOP5o5ngARwI-NUrkqw8Pm3F1-tPAA-XmbVN6xiEi67Kv9q5-V0zHKQDkG05U5XTMu2iukMHY4sM4WMiI-0VS-PA__",
+      sold: null,
+      totalStock: null,
+      rating: 2.0,
+      reviewsCount: 5,
+      isTopRated: false,
+      isBestSeller: false,
+      isPreOrder: false,
+      isNew: true,
+    }
+  ];
+  export default productss
