@@ -20,7 +20,7 @@ function JustLanding() {
         {Bestsell.map((item, index) => (
           <button 
             key={index} 
-            className="bg-transparent border border-gray-500 text-gray-800 px-5 py-2 rounded-full text-sm sm:text-base font-medium text-center whitespace-nowrap mt-3 "
+            className="bg-transparent border border-gray-500 text-gray-800 hover:bg-[#4B3EC4] hover:text-white b px-5 py-2 rounded-full text-sm sm:text-base font-medium text-center whitespace-nowrap mt-3 "
           >
             {item}
           </button>
