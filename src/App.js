@@ -13,10 +13,16 @@ import SignUp from './pages/signup';
 import { BrowserRouter,Routes,Route } from "react-router-dom";
 
 import ListProduct from './pages/listProduct';
-import Footer from './pages/footer';
+
 import BestSeller from './pages/BestSeller';
 import PopCat from './components/popCateg';
 import JustLanding from './pages/justlanding';
+import Suggest from './pages/lsitsuggesttoday';
+import BestSellingSpeakers from './pages/BestSellingSpeakers';
+import JustLandingAndBestSeller from './pages/justLandingAndBestSeller';
+import Subscribe from './components/subscibe';
+import PaymentMethode from './components/paymentMethode';
+import Footer from './components/footer';
 
 
 function App() {
@@ -33,13 +39,14 @@ function App() {
     <Header/>
     <BrowserRouter>
 <Routes >
-<Route index element={<><PopularCat/><TopStory/><BottomStory/><ListProduct/><PreOrder/><TrendingSearch/> <BestSeller/><PopCat/><JustLanding/></>}/>
+<Route index element={<><PopularCat/><TopStory/><BottomStory/><ListProduct/><PreOrder/><TrendingSearch/> <BestSeller/><PopCat/><Suggest/><BestSellingSpeakers/><JustLanding/><JustLandingAndBestSeller/><Subscribe/></>}/>
 <Route path="/login" element={<><Loginn/></>}/>
 <Route path="/signup" element={<><SignUp/></>}/>
 </Routes>
 </BrowserRouter>
 
-      {/* <Footer/> */}
+      <Footer/> 
+      <PaymentMethode/>
     </>
   );
 }
