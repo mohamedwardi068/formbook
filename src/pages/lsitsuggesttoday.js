@@ -1,7 +1,4 @@
 import React from 'react';
-
-
-import Productttt from '../components/bsugguest';
 import sugg from '../db/suugestTodayDb';
 import Producttt from '../components/producttt';
 

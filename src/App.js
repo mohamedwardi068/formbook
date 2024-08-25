@@ -4,8 +4,7 @@ import BooksContext from './context/books';
 import Navbar from './components/navbar';
 import Header from './components/header';
 import PopularCat from './components/popularcat';
-import TopStory from './components/topstory';
-import BottomStory from './components/bottomstory';
+
 import TrendingSearch from './components/trendingSearch';
 import PreOrder from './components/preOrder';
 import Loginn from './pages/login';
@@ -23,6 +22,7 @@ import JustLandingAndBestSeller from './pages/justLandingAndBestSeller';
 import Subscribe from './components/subscibe';
 import PaymentMethode from './components/paymentMethode';
 import Footer from './components/footer';
+import Story from './pages/story';
 
 
 function App() {
@@ -39,7 +39,7 @@ function App() {
     <Header/>
     <BrowserRouter>
 <Routes >
-<Route index element={<><PopularCat/><TopStory/><BottomStory/><ListProduct/><PreOrder/><TrendingSearch/> <BestSeller/><PopCat/><Suggest/><BestSellingSpeakers/><JustLanding/><JustLandingAndBestSeller/><Subscribe/></>}/>
+<Route index element={<><PopularCat/><ListProduct/><PreOrder/><TrendingSearch/> <BestSeller/><PopCat/><Suggest/><BestSellingSpeakers/><JustLanding/><JustLandingAndBestSeller/><Subscribe/></>}/>
 <Route path="/login" element={<><Loginn/></>}/>
 <Route path="/signup" element={<><SignUp/></>}/>
 </Routes>

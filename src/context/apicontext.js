@@ -1,14 +1,14 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { addBooks, addCategories, addNotification, categoryId, getBooksByCategories, getcategories, getNotification } from "../api/api"
+import { addBooks, addCategories, addNotification, categoryId, getBooksByCategories, getcategories, getnewBooks, getNotification } from "../api/api"
 const apiContext = createContext()
 export const ApiProvider = ({ children }) => {
 
-        const [response,setresponse]=useState([])
+        const [category,setCategory]=useState([])
         useEffect(()=>{
             const getcat=async()=>{
                 try{
               const reponse=await getcategories()
-               await setresponse(reponse)
+               await setCategory(reponse)
               
               return reponse
             }
@@ -18,6 +18,23 @@ export const ApiProvider = ({ children }) => {
         
         };
         getcat()
+    }
+        ,[])
+        const [newBooks,setnewBooks]=useState([])
+        useEffect(()=>{
+            const getnexbooks=async()=>{
+                try{
+              const reponse=await getnewBooks()
+               await setnewBooks(reponse)
+              
+              return reponse
+            }
+            catch{
+                console.log('Apierreur::',console.error())
+            }
+        
+        };
+        getnexbooks()
     }
         ,[])
    
@@ -115,7 +132,7 @@ const [notification,setnotification]=useState([])
  
         
 return(
-<apiContext.Provider value={{response,addCat,addBookss,adddNotification,categoryIdd,notification,booksByCategories}}>
+<apiContext.Provider value={{category,newBooks,addCat,addBookss,adddNotification,categoryIdd,notification,booksByCategories}}>
         {children}
 </apiContext.Provider>)
 }

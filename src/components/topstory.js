@@ -1,24 +1,24 @@
 import React from 'react';
 
-function TopStory() {
+function TopStory({title,image,desc}) {
+
   return (
     <>
       <div className="flex flex-col bg-white ml-[5%] md:ml-[5%] w-[90%] md:w-[1750px] h-auto">
         <div className="flex flex-col md:flex-row w-full space-y-4 md:space-y-0 md:space-x-4 mt-1">
           <div className="relative flex p-4 rounded-2xl w-full md:w-[60%] h-[350px] md:h-[500px]">
             <img
-              src="https://s3-alpha-sig.figma.com/img/8012/bd49/2e326035bc994cb0fb99eb88b79fa1bd?Expires=1724630400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=p~D5Pz0lcrkmfgqkgcdTG8qaPgZ-b2hX5NGJPtvZq-oPTHngjECcCFhjvGnBoIWfkBF50RmEbMIju3YartakjH8dXcaiyMgjYilpLs2XBJsNFY1i0fKP-20JczjcJU3jZQcg4yAwmOBy10H~J1l7CZOWOVHrSfNVxsmf5u2lQcs8EMiJLL9J0vNhBWz0tnzl84OTNVFK4m~u15nni9j0gCY~~SOcQWHlkfV9ealYfWWGQKanij7Ln5JcCWBKBA169AdG~xOrcT67jZNogAGVkxrd-QxPBiiLyHv-PBcGYjSJgYn4Y80hs-x4MrEhllla5Ei0Lx0j4Z5F25E6N5BEDQ__"
-              alt="Noise Cancelling Headphone"
+              src={image}
+              alt={title}
               className="w-full h-full object-cover rounded-md"
             />
             <div className="absolute text-white p-4">
               <div className="text-left ml-4 md:ml-7 mt-4 md:mt-10 text-2xl md:text-4xl">
-                <h3 className="font-thin">EKO 40"</h3>
-                <h3 className="font-thin">Android</h3>
-                <h3 className="font-thin">TV</h3>
+                <h3 className="font-thin">{title}</h3>
+                
               </div>
               <div className="text-gray-200 text-sm md:text-xl mt-4 md:mt-7 ml-5 md:ml-11">
-                <h6>Smart Full HD </h6><h6>Android TV with </h6><h6>Google Assistant</h6>
+                <h6>{desc}</h6>
               </div>
               <button className="bg-[#4B3EC4] border border-[#4B3EC4] text-white mt-6 md:mt-32 px-4 py-2 rounded-full hover:bg-gray-200 hover:border-gray-200 hover:text-[#4B3EC4] ml-5 md:ml-12 font-bold w-[130px] md:w-[150px] h-[40px]">
                 SHOP NOW

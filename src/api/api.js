@@ -14,6 +14,22 @@ export const  getcategories=async()=> {
 
   
 }
+
+export const  getnewBooks=async()=> {
+    
+    try{
+    const reponse=await axios.get(`${BASE_URL}/Book/new-books`)
+    console.log("first",reponse)
+    return reponse.data}
+    catch{
+        console.log('Apierreur',console.error())
+    }
+
+
+  
+}
+
+
 export const  addCategories=async(data)=> {
     try{
   const reponse=  await axios.post(`${BASE_URL}/addCategories`,data)

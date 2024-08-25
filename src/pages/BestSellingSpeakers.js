@@ -24,7 +24,7 @@ function BestSellingSpeakers() {
           <h2 className="text-2xl font-bold mb-4">Best Selling Speakers</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             
-            {/* Product 1 */}
+ 
             <div className="bg-white p-4 rounded-lg shadow-lg relative">
               <div className="absolute top-2 left-2 bg-white text-red-500 text-xs font-bold px-2 py-1 rounded-full border border-red-500">
                 0% Installment
@@ -49,7 +49,7 @@ function BestSellingSpeakers() {
               <p className="text-gray-900 font-bold">$325.00 - $410.00</p>
             </div>
             
-            {/* Product 2 */}
+      
             <div className="bg-white p-4 rounded-lg shadow-lg relative">
               
               <button className="absolute top-2 right-2 text-black rounded-full w-[30px] h-[30px]">
