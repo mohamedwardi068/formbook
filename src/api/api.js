@@ -1,5 +1,5 @@
 import axios from "axios"
-const BASE_URL = "https://ordersbacend.onrender.com/v1"; 
+const BASE_URL = "http://localhost:8000/v1"; 
 
 export const  getcategories=async()=> {
     

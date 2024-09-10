@@ -1,139 +1,135 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { addBooks, addCategories, addNotification, categoryId, getBooksByCategories, getcategories, getnewBooks, getNotification } from "../api/api"
-const apiContext = createContext()
+import { 
+  addBooks, 
+  addCategories, 
+  addNotification, 
+  categoryId, 
+  getBooksByCategories, 
+  getcategories, 
+  getCategories, 
+  getnewBooks, 
+  getNewBooks, 
+  getNotification 
+} from "../api/api";
+
+// Create Context
+const ApiContext = createContext();
+
+// API Provider Component
 export const ApiProvider = ({ children }) => {
+  const [response, setResponse] = useState([]);
+  const [category, setCategory] = useState([]);
+  const [newBooks, setNewBooks] = useState([]);
+  const [notification, setNotification] = useState([]);
+  const [booksByCategories, setBooksByCategories] = useState([]);
 
-        const [category,setCategory]=useState([])
-        useEffect(()=>{
-            const getcat=async()=>{
-                try{
-              const reponse=await getcategories()
-               await setCategory(reponse)
-              
-              return reponse
-            }
-            catch{
-                console.log('Apierreur::',console.error())
-            }
-        
-        };
-        getcat()
-    }
-        ,[])
-        const [newBooks,setnewBooks]=useState([])
-        useEffect(()=>{
-            const getnexbooks=async()=>{
-                try{
-              const reponse=await getnewBooks()
-               await setnewBooks(reponse)
-              
-              return reponse
-            }
-            catch{
-                console.log('Apierreur::',console.error())
-            }
-        
-        };
-        getnexbooks()
-    }
-        ,[])
-   
-
-  
-       
-              const addCat=async(data)=>{
-                  try{
-                const reponse=await addCategories(data)
-                 await setresponse(reponse)
-                
-                return reponse
-              }
-              catch{
-                  console.log('Apierreur::',console.error())
-              }
-          
-          };
-          
-          const addBookss=async(data)=>{
-            try{
-          const reponse=await addBooks(data)
-           await setresponse(reponse)
-          
-          return reponse
-        }
-        catch{
-            console.log('Apierreur::',console.error())
-        }
-    
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await getcategories();
+        setCategory(response);
+      } catch (error) {
+        console.error('Error fetching categories:', error);
+      }
     };
-    const adddNotification=async(data)=>{
-      try{
-    const reponse=await addNotification(data)
-     await setresponse(reponse)
-    
-    return reponse
-  }
-  catch{
-      console.log('Apierreur::',console.error())
-  }
+    fetchCategories();
+  }, []);
 
+  useEffect(() => {
+    const fetchNewBooks = async () => {
+      try {
+        const response = await getnewBooks();
+        setNewBooks(response);
+      } catch (error) {
+        console.error('Error fetching new books:', error);
+      }
+    };
+    fetchNewBooks();
+  }, []);
+
+  useEffect(() => {
+    const fetchNotifications = async () => {
+      try {
+        const response = await getNotification();
+        setNotification(response);
+      } catch (error) {
+        console.error('Error fetching notifications:', error);
+      }
+    };
+    fetchNotifications();
+  }, []);
+
+  useEffect(() => {
+    const fetchBooksByCategories = async () => {
+      try {
+        const response = await getBooksByCategories();
+        setBooksByCategories(response);
+      } catch (error) {
+        console.error('Error fetching books by categories:', error);
+      }
+    };
+    fetchBooksByCategories();
+  }, []);
+
+  const addCategory = async (data) => {
+    try {
+      const response = await addCategories(data);
+      setResponse(response);
+      return response;
+    } catch (error) {
+      console.error('Error adding category:', error);
+    }
+  };
+
+  const addBooks = async (data) => {
+    try {
+      const response = await addBooks(data);
+      setResponse(response);
+      return response;
+    } catch (error) {
+      console.error('Error adding books:', error);
+    }
+  };
+
+  const addNotification = async (data) => {
+    try {
+      const response = await addNotification(data);
+      setResponse(response);
+      return response;
+    } catch (error) {
+      console.error('Error adding notification:', error);
+    }
+  };
+
+  const getCategoryById = async (data) => {
+    try {
+      const response = await categoryId(data);
+      setResponse(response);
+      return response;
+    } catch (error) {
+      console.error('Error getting category by ID:', error);
+    }
+  };
+
+  return (
+    <ApiContext.Provider 
+      value={{
+        category,
+        newBooks,
+        addCategory,
+        addBooks,
+        addNotification,
+        getCategoryById,
+        notification,
+        booksByCategories
+      }}
+    >
+      {children}
+    </ApiContext.Provider>
+  );
 };
 
-const categoryIdd=async(data)=>{
-  try{
-const reponse=await categoryId(data)
- await setresponse(reponse)
-
-return reponse
-}
-catch{
-  console.log('Apierreur::',console.error())
-}
-
+// Custom Hook
+export const useApi = () => {
+  return useContext(ApiContext);
 };
-
-const [notification,setnotification]=useState([])
-        useEffect(()=>{
-            const getNotifica=async()=>{
-                try{
-              const notification=await getNotification()
-               await setnotification(notification)
-              
-              return notification
-            }
-            catch{
-                console.log('Apierreur::',console.error())
-            }
-        
-        };
-        getNotifica()
-    }
-        ,[])
-   
-        const [booksByCategories,setbooksByCategories]=useState([])
-        useEffect(()=>{
-            const getcat=async()=>{
-                try{
-              const booksByCategories=await getBooksByCategories()
-               await setbooksByCategories(booksByCategories)
-              
-              return booksByCategories
-            }
-            catch{
-                console.log('Apierreur::',console.error())
-            }
-        
-        };
-        getcat()
-    }
-        ,[])
-            
-  
- 
-        
-return(
-<apiContext.Provider value={{category,newBooks,addCat,addBookss,adddNotification,categoryIdd,notification,booksByCategories}}>
-        {children}
-</apiContext.Provider>)
-}
-export const useapi=()=>{ return useContext(apiContext)}

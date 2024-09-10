@@ -1,15 +1,17 @@
 import React from 'react'
 import BottomStory from '../components/bottomstory'
 import TopStory from '../components/topstory'
+import { useApi } from '../context/apicontext'
 
 function Story() {
+  const {books}=useApi()
   return (
     <div>
         <TopStory 
-        id={Product.id}
-        title={Product.title}
-        image={Product.image}
-        desc={Product.description}
+        id={books?.id||""}
+        title={books?.title||""}
+        image={books?.image||""}
+        desc={books?.description||""}
         />
         <BottomStory 
         />

@@ -1,10 +1,10 @@
 import React from 'react';
 
 import Product from '../components/product'; 
-import { useapi } from '../context/apicontext';
+import { useApi, useapi } from '../context/apicontext';
 
 function ListProduct() {
-  const { newBooks } = useapi();
+  const { newBooks } = useApi();
   console.log("rrrrr",newBooks)
 
   return (

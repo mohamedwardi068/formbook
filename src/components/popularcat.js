@@ -1,8 +1,8 @@
   import React, { useEffect } from 'react';
-  import { useapi } from '../context/apicontext';
+  import { useApi} from '../context/apicontext';
 
   function PopularCat() {
-    const {category}=useapi();
+    const {category}=useApi();
     // useEffect(()=>{
       
     // },[category])
