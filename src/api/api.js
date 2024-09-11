@@ -1,10 +1,10 @@
 import axios from "axios"
-const BASE_URL = "https://ordersbacend.onrender.com/v1"; 
+const BASE_URL = "http://localhost:8000/v1"; 
 
 export const  getcategories=async()=> {
     
     try{
-    const reponse=await axios.get(`${BASE_URL}/Category/categories`)
+    const reponse=await axios.get(`${BASE_URL}/category/get`)
     console.log("first",reponse)
     return reponse.data}
     catch{
@@ -18,7 +18,7 @@ export const  getcategories=async()=> {
 export const  getnewBooks=async()=> {
     
     try{
-    const reponse=await axios.get(`${BASE_URL}/Book/new-books`)
+    const reponse=await axios.get(`${BASE_URL}/books/`)
     console.log("first",reponse)
     return reponse.data}
     catch{
@@ -32,7 +32,7 @@ export const  getnewBooks=async()=> {
 
 export const  addCategories=async(data)=> {
     try{
-  const reponse=  await axios.post(`${BASE_URL}/addCategories`,data)
+  const reponse=  await axios.post(`${BASE_URL}/category/addCategories`,data)
 
     return reponse.data}
     catch{
@@ -44,7 +44,7 @@ export const  addCategories=async(data)=> {
 }
 export const  addBooks=async(data)=> {
     try{
-    const reponse=await axios.post(`${BASE_URL}/categories/${categoryId}/addBooks`,data)
+    const reponse=await axios.post(`${BASE_URL}/books/addBook`,data)
     return reponse.data}
     catch{
         console.log('Apierreur',console.error())
@@ -53,28 +53,28 @@ export const  addBooks=async(data)=> {
 
   
 }
-export const  getNotification=async()=> {
-    try{
-    const reponse=await axios.get(`${BASE_URL}/notifications/${BASE_URL}/notifications/get-Notification`)
-    return reponse.data}
-    catch{
-        console.log('Apierreur',console.error())
-    }
+// export const  getNotification=async()=> {
+//     try{
+//     const reponse=await axios.get(`${BASE_URL}/notifications/${BASE_URL}/notifications/get-Notification`)
+//     return reponse.data}
+//     catch{
+//         console.log('Apierreur',console.error())
+//     }
 
 
   
-}
-export const  addNotification=async(data)=> {
-    try{
-    const reponse=await axios.post(`${BASE_URL}/notifications/add-Notification`,data)
-    return reponse.data}
-    catch{
-        console.log('Apierreur',console.error())
-    }
+// }
+// export const  addNotification=async(data)=> {
+//     try{
+//     const reponse=await axios.post(`${BASE_URL}/notifications/add-Notification`,data)
+//     return reponse.data}
+//     catch{
+//         console.log('Apierreur',console.error())
+//     }
 
 
   
-}
+// }
 export const  categoryId=async(data)=> {
     try{
     const reponse=await axios.post(`${BASE_URL}/add-book/${categoryId}`,data)
@@ -98,13 +98,13 @@ export const  categoryId=async(data)=> {
 
   
 // }
-export const getBooksByCategories=async(categoryId)=>{
-    try {
-      const res= await axios.get(`${BASE_URL}/Category/categories/${categoryId}/book`)
+// export const getBooksByCategories=async(categoryId)=>{
+//     try {
+//       const res= await axios.get(`${BASE_URL}/Category/categories/${categoryId}/book`)
 
 
-      return res.data}
-      catch(error){
-            console.error("erreur")
-      }
-    }
+//       return res.data}
+//       catch(error){
+//             console.error("erreur")
+//       }
+//     }

@@ -14,8 +14,8 @@ function Producttt({
             <div className="bg-transparent text-red-500 border border-red-500 text-xs font-bold px-4 py-1 rounded-full absolute bottom-[100%] right-1/2 sm:right-[61%] transform translate-x-1/2 sm:translate-x-0 text-nowrap ">
               0% Installment
             </div>
-            <button className="right-2 sm:right-[1%] bg-transparent bottom-[100%] text-white rounded-full w-[35px] h-[35px] absolute justify-center border border-gray-500">
-              <i className="fa fa-heart text-black text-base"></i>
+            <button className="right-2 sm:right-[1%] bg-transparent bottom-[100%] text-white rounded-full w-[35px] h-[35px] absolute justify-center border border-gray-500 hover:bg-purple-800">
+              <i className="fa fa-heart text-black hover:text-white text-base"></i>
             </button>
           </div>
           <div className='mt-5'>
