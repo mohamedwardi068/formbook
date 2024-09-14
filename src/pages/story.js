@@ -1,3 +1,4 @@
+
 import React from 'react';
 import BottomStory from '../components/bottomstory';
 import TopStory from '../components/topstory';
@@ -23,6 +24,7 @@ function Story() {
       )}
       
       <BottomStory />
+
     </div>
   );
 }

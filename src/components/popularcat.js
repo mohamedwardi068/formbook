@@ -1,9 +1,9 @@
+
 import React from 'react';
 import { useApi } from '../context/apicontext';
 
 function PopularCat() {
   const { category } = useApi();
-
   return (
     <div className="mx-8 my-4 ml-[15%] md:ml-[5%] mt-6">
       <div className="flex justify-between items-center">

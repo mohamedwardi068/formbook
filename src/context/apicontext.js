@@ -7,7 +7,7 @@ import {
   getnewBooks,
 } from "../api/api";
 
-const apiContext = createContext();
+const ApiContext = createContext(); // Make sure context starts with uppercase
 
 export const ApiProvider = ({ children }) => {
   const [category, setCategory] = useState([]);
@@ -76,7 +76,7 @@ export const ApiProvider = ({ children }) => {
   };
 
   return (
-    <apiContext.Provider
+    <ApiContext.Provider
       value={{
         category,
         newBooks,
@@ -88,11 +88,11 @@ export const ApiProvider = ({ children }) => {
       }}
     >
       {children}
-    </apiContext.Provider>
+    </ApiContext.Provider>
   );
 };
 
 // Custom hook to use the apiContext
 export const useApi = () => {
-  return useContext(apiContext);
+  return useContext(ApiContext); // Use uppercase ApiContext to ensure context consistency
 };
