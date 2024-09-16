@@ -7,13 +7,11 @@ import {
   getnewBooks,
 } from "../api/api";
 
-const ApiContext = createContext(); // Make sure context starts with uppercase
-
+const ApiContext = createContext(); 
 export const ApiProvider = ({ children }) => {
   const [category, setCategory] = useState([]);
   const [newBooks, setNewBooks] = useState([]);
-  const [notification, setNotification] = useState([]); // In case you uncomment notification fetching
-  const [booksByCategories, setBooksByCategories] = useState([]);
+  
   const [response, setResponse] = useState([]);
 
   // Fetch categories
@@ -29,7 +27,7 @@ export const ApiProvider = ({ children }) => {
     fetchCategories();
   }, []);
 
-  // Fetch new books
+
   useEffect(() => {
     const fetchNewBooks = async () => {
       try {
@@ -42,7 +40,6 @@ export const ApiProvider = ({ children }) => {
     fetchNewBooks();
   }, []);
 
-  // Add a new category
   const addCat = async (data) => {
     try {
       const response = await addCategories(data);
