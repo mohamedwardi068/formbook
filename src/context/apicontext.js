@@ -78,10 +78,10 @@ export const ApiProvider = ({ children }) => {
         category,
         newBooks,
         addCat,
-        addBooksHandler, // Renamed to better represent its purpose
-        getCategoryId, // Renamed to avoid conflict
-        booksByCategories,
-        // notification, // Uncomment when needed
+        addBooksHandler, 
+        getCategoryId, 
+        
+       
       }}
     >
       {children}
@@ -89,7 +89,7 @@ export const ApiProvider = ({ children }) => {
   );
 };
 
-// Custom hook to use the apiContext
+
 export const useApi = () => {
-  return useContext(ApiContext); // Use uppercase ApiContext to ensure context consistency
+  return useContext(ApiContext); 
 };
