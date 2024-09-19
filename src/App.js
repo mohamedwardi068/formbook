@@ -23,6 +23,8 @@ import Subscribe from './components/subscibe';
 import PaymentMethode from './components/paymentMethode';
 import Footer from './components/footer';
 import Story from './pages/story';
+import TopStory from './components/topstory';
+import BottomStory from './components/bottomstory';
 
 
 function App() {
@@ -39,7 +41,7 @@ function App() {
     <Header/>
     <BrowserRouter>
 <Routes >
-<Route index element={<><PopularCat/><ListProduct/><PreOrder/><TrendingSearch/> <BestSeller/><PopCat/><Suggest/><BestSellingSpeakers/><JustLanding/><JustLandingAndBestSeller/><Subscribe/></>}/>
+<Route index element={<><PopularCat/><TopStory/><BottomStory/><ListProduct/><PreOrder/><TrendingSearch/> <BestSeller/><PopCat/><Suggest/><BestSellingSpeakers/><JustLanding/><JustLandingAndBestSeller/><Subscribe/></>}/>
 <Route path="/login" element={<><Loginn/></>}/>
 <Route path="/signup" element={<><SignUp/></>}/>
 </Routes>

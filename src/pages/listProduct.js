@@ -37,7 +37,7 @@ function ListProduct() {
   }
 
   return (
-    <div className='bg-[#EBEEF6] ml-[5%] mr-[2%] mb-[2%] md:ml-[5%] mt-[2%]'>
+    <div className='bg-[#EBEEF6] ml-[5%] mr-[2%] mb-[2%] md:ml-[5%] mt-[20%]'>
       <h1 className='font-bold text-3xl ml-2 mt-6 mb-3 text-center sm:text-left'>
         Best Weekly Deals
       </h1>
