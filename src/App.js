@@ -25,6 +25,7 @@ import Footer from './components/footer';
 import Story from './pages/story';
 import TopStory from './components/topstory';
 import BottomStory from './components/bottomstory';
+import Profile from './components/profile';
 
 
 function App() {
@@ -37,13 +38,14 @@ function App() {
   return (
     
     <>
-    <Navbar/>
+ 
+    <BrowserRouter>   <Navbar/>
     <Header/>
-    <BrowserRouter>
 <Routes >
 <Route index element={<><PopularCat/><TopStory/><BottomStory/><ListProduct/><PreOrder/><TrendingSearch/> <BestSeller/><PopCat/><Suggest/><BestSellingSpeakers/><JustLanding/><JustLandingAndBestSeller/><Subscribe/></>}/>
 <Route path="/login" element={<><Loginn/></>}/>
 <Route path="/signup" element={<><SignUp/></>}/>
+<Route path="/profile" element={<><Profile/></>}/>
 </Routes>
 </BrowserRouter>
 

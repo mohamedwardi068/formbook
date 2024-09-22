@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState} from 'react';
 import axios from 'axios';
 const base=process.env.BASE_URL_AUTH
 // Create the AuthContext
@@ -9,13 +9,13 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem('authToken') || null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [authentificate,setAuthentificate]=useState(false)
 
   // Function to handle signup
-  const signup = async (name, email, password) => {
+  const signup = async (firstName,lastName,email,password,street,city,state,postalCode,avatar,phoneNumber) => {
     try {
       setLoading(true);
-      console.log("first",email)
-      const response = await axios.post(`http://localhost:8000/v1/users/signup`, { name, email, password }
+      const response = await axios.post(`http://localhost:8000/v1/users/signup`, { firstName,lastName,email,password,street,city,state,postalCode,avatar,phoneNumber}
        , { headers: { Authorization: `Bearer ${token}` } }
       );
       
@@ -23,6 +23,7 @@ export const AuthProvider = ({ children }) => {
       localStorage.setItem('authToken', token);
       setToken(token);
       setUser(client);
+      setAuthentificate(true);
       setLoading(false);
     } catch (error) {
       setLoading(false);
@@ -34,16 +35,18 @@ export const AuthProvider = ({ children }) => {
   const login = async (email, password) => {
     try {
       setLoading(true);
-      console.log("first",email)
       const response = await axios.post(`http://localhost:8000/v1/users/login`, { email, password });
       
       const { token, client } = response.data;
       localStorage.setItem('authToken', token);
       setToken(token);
+      setAuthentificate(true)
       setUser(client);
       setLoading(false);
     } catch (error) {
       setLoading(false);
+      setAuthentificate(false)
+
       setError(error.response?.data?.message || 'Invalid email or password');
     }
   };
@@ -66,7 +69,7 @@ export const AuthProvider = ({ children }) => {
   // }, [token]);
 
   return (
-    <AuthContext.Provider value={{ user, token, loading, error, signup, login, logout }}>
+    <AuthContext.Provider value={{ user, authentificate,token, loading, error, signup, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

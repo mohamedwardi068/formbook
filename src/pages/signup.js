@@ -4,26 +4,66 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/authContext';
 
 function SignUp() {
-  const [name, setName] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [street, setStreet] = useState('');
+  const [city, setCity] = useState('');
+  const [state, setState] = useState('');
+  const [postalCode, setPostalCode] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [avatar, setAvatar] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const { signup } = useAuth();
 
-  const handleSignUp = async () => {
+  const handleSignUp = async (e) => {
+    e.preventDefault();
+
     if (password !== confirmPassword) {
       alert("Passwords do not match");
       return;
     }
+
+    // Simple email regex for validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      alert("Please enter a valid email address");
+      return;
+    }
+
+    // Basic password strength check
+    if (password.length < 8) {
+      alert("Password must be at least 8 characters long");
+      return;
+    }
+
     try {
-      await signup(name, email, password);
+      setIsLoading(true);
+      const userData = {
+        firstName,
+        lastName,
+        email,
+        password,
+        street,
+        city,
+        state,
+        postalCode,
+        phoneNumber,
+        avatar,
+      };
+
+      await signup(userData);
       navigate('/profile');
     } catch (error) {
       console.error('Signup Error:', error.message);
       alert("Sign up failed: " + error.message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -36,31 +76,48 @@ function SignUp() {
   };
 
   return (
-    <div className="flex justify-center items-start pt-24 bg-gray-100 h-screen sm:h-screen">
-      <div className="bg-white shadow-md rounded-lg h-[695.89px] w-[1360px] flex justify-center items-center mb-[10%]">
+    <div className="min-h-screen flex justify-center items-start bg-gray-100">
+      <div className="bg-white shadow-md rounded-lg h-auto w-[80%] flex justify-center items-center mt-8 mb-8">
         <div className="hidden md:flex w-1/2 items-center justify-center">
           <img
-            src="https://s3-alpha-sig.figma.com/img/ec69/a4e4/6c21d583fca24d9604b381d37a07ab34?Expires=1723420800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=hZAZxzLZ3P4fe3IWZeiVPSOuPoEcwfdMUlDZJhufwuLqTbjh~p0fL6LnUrInhyHfCAN6G-IBWmLTMKkj5DIiBJ3upB48e1vZ9zhutYJ4mTYu8g8Mpxaqv5ZKyPQjCPc8yYe20wCPEVSABQxgUM9o1aVQ70BUWoI3T290b4WEjgku~fQPw6L~F2vh~U6iRCaUabHkuOPgOUHZtTCRVaOrRcjSDJCBbprTgT4GdpN-NQZJpHEJW49hV~N9hPLdgXo-B~q6IMrQQJCtDybVrFBkUevXP53bv1q3kw2ZcvOgCW1N6GrF0bTneZcx7ZggXl8Kji8ZdDFkfJmebXikKDudbg__"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZH8JuwhWMTFKgkHvD2mBixXtBcNe4hxoQvw&s"
             alt="Register Illustration"
-            className="w-3/4"
+            className="object-fill h-screen w-full"
           />
         </div>
         <div className="w-full md:w-1/2 flex flex-col p-8">
           <h2 className="text-4xl font-bold text-green-500 mb-4">Register</h2>
-          <p className="text-gray-400 mb-8 text-xl">JOIN TO US</p>
-          <form className="w-full">
-            <div className="mb-4">
-              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
-                Your name
-              </label>
-              <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="name"
-                type="text"
-                placeholder="John Doe"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
+          <p className="text-gray-400 mb-8 text-xl">JOIN US</p>
+          <form className="w-full" onSubmit={handleSignUp}>
+            <div className="mb-4 flex justify-between">
+              <div className="w-full mr-2">
+                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="firstName">
+                  First Name
+                </label>
+                <input
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="firstName"
+                  type="text"
+                  placeholder="John"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="w-full ml-2">
+                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="lastName">
+                  Last Name
+                </label>
+                <input
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="lastName"
+                  type="text"
+                  placeholder="Doe"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                  required
+                />
+              </div>
             </div>
             <div className="mb-4">
               <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
@@ -70,60 +127,146 @@ function SignUp() {
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="email"
                 type="email"
-                placeholder="Example@gmail.com"
+                placeholder="example@gmail.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                required
               />
             </div>
-            <div className="mb-6 relative">
+            <div className="mb-4">
+              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="phoneNumber">
+                Phone Number
+              </label>
+              <input
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="phoneNumber"
+                type="tel"
+                placeholder="Phone Number"
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="street">
+                Street Address
+              </label>
+              <input
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="street"
+                type="text"
+                placeholder="123 Main St"
+                value={street}
+                onChange={(e) => setStreet(e.target.value)}
+              />
+            </div>
+            <div className="mb-4 flex justify-between">
+              <div className="w-full mr-2">
+                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="city">
+                  City
+                </label>
+                <input
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="city"
+                  type="text"
+                  placeholder="City"
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
+                />
+              </div>
+              <div className="w-full ml-2">
+                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="state">
+                  State
+                </label>
+                <input
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="state"
+                  type="text"
+                  placeholder="State"
+                  value={state}
+                  onChange={(e) => setState(e.target.value)}
+                />
+              </div>
+            </div>
+            <div className="mb-4">
+              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="postalCode">
+                Postal Code
+              </label>
+              <input
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="postalCode"
+                type="text"
+                placeholder="Postal Code"
+                value={postalCode}
+                onChange={(e) => setPostalCode(e.target.value)}
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="avatar">
+                Avatar (URL or String)
+              </label>
+              <input
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="avatar"
+                type="text"
+                placeholder="https://example.com/avatar.jpg or base64 string"
+                value={avatar}
+                onChange={(e) => setAvatar(e.target.value)}
+              />
+            </div>
+            <div className="mb-4">
               <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
                 Password
               </label>
-              <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                id="password"
-                type={showPassword ? 'text' : 'password'}
-                placeholder="********"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <div className="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5">
-                <button type="button" onClick={togglePasswordVisibility}>
+              <div className="relative">
+                <input
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="password"
+                  type={showPassword ? "text" : "password"}
+                  placeholder="********"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+                <span
+                  className="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer"
+                  onClick={togglePasswordVisibility}
+                  aria-label={showPassword ? 'Hide password' : 'Show password'}
+                >
                   {showPassword ? <FaEyeSlash /> : <FaEye />}
-                </button>
+                </span>
               </div>
             </div>
-            <div className="mb-6 relative">
-              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="confirm-password">
+            <div className="mb-4">
+              <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="confirmPassword">
                 Confirm Password
               </label>
-              <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                id="confirm-password"
-                type={showConfirmPassword ? 'text' : 'password'}
-                placeholder="********"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-              />
-              <div className="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5">
-                <button type="button" onClick={toggleConfirmPasswordVisibility}>
+              <div className="relative">
+                <input
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="confirmPassword"
+                  type={showConfirmPassword ? "text" : "password"}
+                  placeholder="********"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  required
+                />
+                <span
+                  className="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer"
+                  onClick={toggleConfirmPasswordVisibility}
+                  aria-label={showConfirmPassword ? 'Hide confirm password' : 'Show confirm password'}
+                >
                   {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
-                </button>
+                </span>
               </div>
             </div>
-            <div className="flex items-center justify-between">
-              <button
-                className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                type="button"
-                onClick={handleSignUp}
-              >
-                REGISTER
-              </button>
-            </div>
+            <button
+              type="submit"
+              className={`bg-green-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
+              disabled={isLoading}
+            >
+              {isLoading ? 'Signing Up...' : 'Sign Up'}
+            </button>
           </form>
-          <p className="text-gray-600 text-sm mt-4">
-            ALREADY USER? <a  className="text-green-500 hover:text-green-800">LOGIN</a>
-          </p>
         </div>
       </div>
     </div>
