@@ -49,6 +49,7 @@ function SignUp() {
         lastName,
         email,
         password,
+        
         street,
         city,
         state,

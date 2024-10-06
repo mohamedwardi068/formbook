@@ -42,7 +42,7 @@ function App() {
     <BrowserRouter>   <Navbar/>
     <Header/>
 <Routes >
-<Route index element={<><PopularCat/><TopStory/><BottomStory/><ListProduct/><PreOrder/><TrendingSearch/> <BestSeller/><PopCat/><Suggest/><BestSellingSpeakers/><JustLanding/><JustLandingAndBestSeller/><Subscribe/></>}/>
+<Route index element={<><PopularCat/><TopStory/><ListProduct/><PreOrder/><TrendingSearch/> <BestSeller/><PopCat/><Suggest/><BestSellingSpeakers/><JustLanding/><JustLandingAndBestSeller/><Subscribe/></>}/>
 <Route path="/login" element={<><Loginn/></>}/>
 <Route path="/signup" element={<><SignUp/></>}/>
 <Route path="/profile" element={<><Profile/></>}/>
