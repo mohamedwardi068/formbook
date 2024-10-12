@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function Product({
   _id, 
@@ -16,7 +16,7 @@ function Product({
 }) {
   const soldPercentage = (sold / totalStock) * 100;
   const discount = ((originalPrice - price) / originalPrice) * 100;
-
+  const [isHeartClicked, setIsHeartClicked] = useState(false);
   return (
     <div className="w-full sm:w-[350px] bg-gradient-to-b from-white from-70% via-gray-500 via-80% to-white to-95%  rounded-lg overflow-hidden h-auto border border-gray-400 mx-auto sm:ml-3 mb-4 mt-1">
       <div className='p-5'>
@@ -25,8 +25,11 @@ function Product({
             <div className="bg-transparent text-red-500 border border-red-500 text-xs font-bold px-4 py-1 rounded-full absolute bottom-[100%] right-1/2 sm:right-[65%] transform translate-x-1/2 sm:translate-x-0 text-nowrap">
               0% Installment
             </div>
-            <button className="bg-purple-800 right-2 sm:right-[1%] bg-transparent bottom-[100%] rounded-full w-[35px] h-[35px] absolute justify-center border border-gray-500 text-purple-800 hover:bg-purple-800">
-              <i className="fa fa-heart text-white text-base"></i>
+            <button
+              className={`right-2 sm:right-[1%] bg-transparent bottom-[100%] rounded-full w-[35px] h-[35px] absolute justify-center border border-gray-500 `}
+              onClick={() => setIsHeartClicked(!isHeartClicked)} // Toggle clicked state
+            >
+              <i className={`fa fa-heart ${isHeartClicked ? 'text-purple-600' : 'text-black'} text-base hover:text-purple-600 text-black`}></i>
             </button>
           </div>
           <div className='mt-2 '>

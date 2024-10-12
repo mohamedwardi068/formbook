@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function Producttt({
   title, price, originalPrice, imageUrl, totalStock, sold, rating, reviewsCount, isTopRated, isBestSeller, isPreOrder, isNew
 }) {
-  
+  // State to track if the heart button is clicked
+  const [isHeartClicked, setIsHeartClicked] = useState(false);
+
+  // Calculate the discount percentage
   const discount = originalPrice ? ((originalPrice - price) / originalPrice) * 100 : null;
 
   return (
@@ -14,8 +17,11 @@ function Producttt({
             <div className="bg-transparent text-red-500 border border-red-500 text-xs font-bold px-4 py-1 rounded-full absolute bottom-[100%] right-1/2 sm:right-[61%] transform translate-x-1/2 sm:translate-x-0 text-nowrap ">
               0% Installment
             </div>
-            <button className="right-2 sm:right-[1%] bg-transparent bottom-[100%] text-white rounded-full w-[35px] h-[35px] absolute justify-center border border-gray-500 hover:bg-purple-800">
-              <i className="fa fa-heart text-black hover:text-white text-base"></i>
+            <button
+              className={`right-2 sm:right-[1%] bg-transparent bottom-[100%] rounded-full w-[35px] h-[35px] absolute justify-center border border-gray-500 `}
+              onClick={() => setIsHeartClicked(!isHeartClicked)} // Toggle clicked state
+            >
+              <i className={`fa fa-heart ${isHeartClicked ? 'text-purple-600' : 'text-black'} text-base hover:text-purple-600 text-black`}></i>
             </button>
           </div>
           <div className='mt-5'>
@@ -29,7 +35,7 @@ function Producttt({
 
         <div className="p-4">
           <div className="flex mb-3 mr-1">
-          {discount > 0 && (
+            {discount > 0 && (
               <div className="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full text-nowrap">
                 {discount.toFixed(0)}% OFF
               </div>
@@ -74,7 +80,7 @@ function Producttt({
                 );
               })}
               <span className="text-gray-600 text-sm ml-2">
-              ({reviewsCount})
+                ({reviewsCount})
               </span>
             </div>
           )}
